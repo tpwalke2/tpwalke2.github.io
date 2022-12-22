@@ -4,6 +4,9 @@ title: Blog Migration
 date: '2022-12-22T08:00:00.000-05:00'
 author: Tom
 tags:
+ - blog
+ - jekyll
+ - blogger
 ---
 Surprise, I moved!
 
