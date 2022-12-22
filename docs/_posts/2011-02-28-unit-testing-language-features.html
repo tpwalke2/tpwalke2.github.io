@@ -1,0 +1,14 @@
+---
+layout: post
+title: Unit Testing Language Features
+date: '2011-02-28T18:30:00.004-05:00'
+author: Tom
+tags:
+- ".NET"
+- unit testing
+modified_time: '2011-02-28T18:30:00.793-05:00'
+blogger_id: tag:blogger.com,1999:blog-924733368885081052.post-306220839962819944
+blogger_orig_url: http://www.tpwalke2.com/2011/02/unit-testing-language-features.html
+---
+
+I was cleaning up some code I was working on and found a variable that was only used to hold the results of a function that returned a list for enumeration. I could make the code a little more readable by moving the function call directly into the loop. My only question was whether the function would be called each iteration.<br /><br />We use <a href="http://www.nunit.org/">NUnit</a> at work for <a href="http://en.wikipedia.org/wiki/Test-driven_development">test-driven development</a> and automated regression tests. If it works for testing scenarios in the code that we write, why not for language features also? Here is the test I came up with.<br /><pre>&lt;Test(), Explicit()&gt; Public Sub ForEachTest()<br />  Dim numRuns As Integer = 0<br /><br />  For Each s As String In TestForEach(numRuns)<br />    Debug.Print(s)<br />  Next<br /><br />  Assert.AreEqual(1, numRuns)<br />End Sub<br /><br />Private Function TestForEach(ByRef numberOfRuns As Integer) As IList(Of String)<br />  numberOfRuns += 1<br /><br />  Dim result As New List(Of String)<br />  result.Add("Test 1")<br />  result.Add("Test 2")<br />  result.Add("Test 3")<br /><br />  Return result<br />End Function<br /></pre>If the iterator calls the function multiple times then the test would fail. I marked the test to be <code>Explicit()</code> so that it would not run with our automated build in the case I accidentally checked it in.

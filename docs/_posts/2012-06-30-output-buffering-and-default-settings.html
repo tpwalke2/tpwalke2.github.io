@@ -1,0 +1,14 @@
+---
+layout: post
+title: Output Buffering and Default Settings
+date: '2012-06-30T20:29:00.001-04:00'
+author: Tom
+tags:
+- error
+- php
+modified_time: '2017-11-10T10:24:29.635-05:00'
+blogger_id: tag:blogger.com,1999:blog-924733368885081052.post-9005085020961040994
+blogger_orig_url: http://www.tpwalke2.com/2012/06/output-buffering-and-default-settings.html
+---
+
+<p>I recently needed to set up a new development system with <a href="http://httpd.apache.org/">Apache</a> and <a href="http://php.net/">PHP</a>. The last time I configured these two programs was when PHP was at 5.2.x and the ZIP file included a php.ini-development. The most recent version of PHP is 5.4.4 and does not include a php.ini-development.</p> <p>The PHP application being developed on this system offers a setting for compressing the output for client browsers that support <a href="http://en.wikipedia.org/wiki/HTTP_compression">compression</a>. When I turned on this setting, I received this error:</p> <p><code>ob_start(): output handler 'ob_gzhandler' conflicts with 'zlib output compression'</code></p> <p>Nothing had changed in the PHP application. The only thing that changed was the PHP version. If I were a little less experienced, I may have thought that I found a bug in the latest version of PHP. Instead, I figured that either something had changed in the API and my implementation had been incorrect from the start, or I had something configured wrong.</p> <p>I compared the php.ini from the old 5.2.x with the php.ini from 5.4.4 and found a difference in the <code><a href="http://www.php.net/manual/en/outcontrol.configuration.php#ini.output-buffering">output_buffering</a></code> setting.</p> <p>In 5.2.x, the php.ini-development has <code>output_buffering</code> set to <code>Off</code>. In 5.4.4, <code>output_buffering</code> is set to <code>4096</code>. I set <code>output_buffering</code> to <code>Off</code> and I am no longer receiving the error.</p>  

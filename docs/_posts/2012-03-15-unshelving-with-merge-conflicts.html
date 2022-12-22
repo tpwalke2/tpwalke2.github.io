@@ -1,0 +1,14 @@
+---
+layout: post
+title: Unshelving with Merge Conflicts
+date: '2012-03-15T10:01:00.001-04:00'
+author: Tom
+tags:
+- error
+- mercurial
+modified_time: '2012-03-15T10:29:06.251-04:00'
+blogger_id: tag:blogger.com,1999:blog-924733368885081052.post-5913265612187342763
+blogger_orig_url: http://www.tpwalke2.com/2012/03/unshelving-with-merge-conflicts.html
+---
+
+<p>My team at work uses <a href="http://mercurial.selenic.com/">mercurial</a> for source control. One of the concepts in the mercurial is a “shelf” where you can place partially completed work while you take care of synchronizing your local repository with another repository. You don’t always have to place items on the shelf, but some operations in mercurial require a clean local repository.</p>  <p>A coworker recently placed some items on his shelf and then synchronized his repository. When he went to “unshelve” his changes, there was a conflict. The (redacted) error text read “Unshelve Abort patching file &lt;filename.ext&gt; Hunk #&lt;number&gt; FAILED at &lt;number&gt; &lt;number&gt; out of &lt;number&gt; hunks FAILED – saving rejects to file &lt;filename.ext&gt;.rej”. He had been working on one of the files that had also been updated during the synchronize. Technically, the original shelving operation was unnecessary as mercurial is intelligent enough to merge conflicting files. The shelving was done, however, and he still needed his changes that were on the shelf.</p>  <p>The ultimate solution was the revert the repository back to the point of the shelving, then proceed with the synchronization without shelving.</p>  <p>There may be another way to tell the shelf that the conflicts have been resolved and it can continue (like with <code>hg transplant --continue</code>). If you know of a way to do this, feel free to let me know.</p>  

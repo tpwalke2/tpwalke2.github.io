@@ -1,0 +1,14 @@
+---
+layout: post
+title: Appending elements while iterating an XMLNodeList
+date: '2011-12-23T18:00:00.002-05:00'
+author: Tom
+tags:
+- ".NET"
+- XML
+modified_time: '2011-12-23T18:00:07.293-05:00'
+blogger_id: tag:blogger.com,1999:blog-924733368885081052.post-1079471237808688591
+blogger_orig_url: http://www.tpwalke2.com/2011/12/appending-elements-while-iterating.html
+---
+
+In a unit test, I had created a populated XMLNodeList and wanted to make sure that the elements were added in a certain spot within the (<a href="http://tpwalke2.blogspot.com/2011/11/xml-elements-from-different-documents.html">same parent</a>) XMLDocument after the code under test was finished. I don't remember many of the minute details, but the code would iterate the XMLNodeList and copy the node to the document. The iteration kept failing, however.<br /><br />After stepping through the code in debug mode, I found that the original XMLNodeList would get emptied out while iterating. If you want to keep the XMLNodeList intact, you need to clone the current node and push the clone into the document.

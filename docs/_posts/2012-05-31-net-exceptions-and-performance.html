@@ -1,0 +1,14 @@
+---
+layout: post
+title: ".NET Exceptions and Performance"
+date: '2012-05-31T18:00:00.000-04:00'
+author: Tom
+tags:
+- ".NET"
+- performance
+modified_time: '2012-05-31T18:00:02.646-04:00'
+blogger_id: tag:blogger.com,1999:blog-924733368885081052.post-7224114604760585101
+blogger_orig_url: http://www.tpwalke2.com/2012/05/net-exceptions-and-performance.html
+---
+
+<p>I had an application that was performing very poorly under a fairly heavy load out in the real world. It got me thinking about doing more performance testing, both within a profiler and under simulated loads. The profiler pointed out some key flaws in the code that were quickly dispatched, but the problems still remained.</p>  <p>I enlisted some help to simulate more realistic loads and really stressed out the application and I started getting errors that I shouldn’t have been getting. So I thought. The code that was generating the errors wasn’t thread-safe. In an effort to reduce the number of error emails I was receiving, I surrounded the offending code with SyncLocks and the errors stopped.</p>  <p>A side benefit was that the performance issues went away. It was then that I discovered that <a href="http://www.codeproject.com/Articles/11265/Performance-implications-of-Exceptions-in-NET">exceptions can cause</a> some performance hits due to the extra objects required.</p>  <p>So, if you can help it, minimize exceptions (I could in this case) and watch for thread-safety in code that may be run with multiple threads.</p>  

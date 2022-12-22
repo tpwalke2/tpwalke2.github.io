@@ -1,0 +1,14 @@
+---
+layout: post
+title: ASP.NET UpdatePanel and PageRequestManagerParserErrorException
+date: '2011-12-21T18:00:00.000-05:00'
+author: Tom
+tags:
+- asp.net
+- ".NET"
+modified_time: '2011-12-22T12:02:20.396-05:00'
+blogger_id: tag:blogger.com,1999:blog-924733368885081052.post-6681039070535064533
+blogger_orig_url: http://www.tpwalke2.com/2011/12/aspnet-updatepanel-and.html
+---
+
+<p>I have a page that contains an UpdatePanel that gets updated every 2 seconds to poll for information from the server. With a certain combination of the application running, the UpdatePanel would not refresh in Internet Explorer, but worked fine in Firefox. I finally tracked it down to the UpdatePanel throwing a PageRequestManagerParserErrorException when the data was coming back from the server. There is plenty of information <a href="http://weblogs.asp.net/leftslipper/archive/2007/02/26/sys-webforms-pagerequestmanagerparsererrorexception-what-it-is-and-how-to-avoid-it.aspx">out there</a> about common reasons why this exception is thrown. However, none of those suggestions are valid for my particular need, which is why <a href="http://tpwalke2.blogspot.com/2011/02/intent.html">I can post</a> about it here.</p><p>The data coming back from the server included non-displayable characters. Firefox handled this gracefully by displaying a little glyph in the place of the non-displayable characters. Internet Explorer choked on the non-displayable characters. Since I have some control over the data that gets sent to the view, I intercept the non-displayable characters and change them to ‘?’. Now both Internet Explorer are handling the refreshing correctly.</p>

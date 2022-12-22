@@ -1,0 +1,14 @@
+---
+layout: post
+title: PHPUnit and Working Directories
+date: '2011-06-29T21:32:00.000-04:00'
+author: Tom
+tags:
+- unit testing
+- php
+modified_time: '2011-06-29T21:32:10.106-04:00'
+blogger_id: tag:blogger.com,1999:blog-924733368885081052.post-8297716227238894693
+blogger_orig_url: http://www.tpwalke2.com/2011/06/phpunit-and-working-directories.html
+---
+
+I'm using the <a href="http://www.phpunit.de/manual/3.5/en/index.html">PHPUnit framework</a> for unit testing some code I'm writing for a couple of websites. To avoid figuring out the seemingly convoluted API for building a suite of tests, I had to rearrange my directory structure. All of my test classes are in a Tests directory that is a child of the directory where the working code is located. I also had to split out each test class into its own separate file (similar to Java).<br /><br />In moving the tests to a subdirectory, I had to change my <code>require_once</code> statements to point to the parent directory via a <a href="http://www.boogiejack.com/server_paths.html">relative path</a>. At least, I thought I did.<br /><br />It turns out that <code>require_once</code> operates on the current working directory. I was using the following command:<br /><pre class="code">  C:\Source\> phpunit Tests<br /></pre>The current working directory was C:\Source, so when the require_once attempted to resolve the path, it was looking in C:\.<br /><br />There are two solutions:<br /><ol>  <li>Remove the relative path markers</li>  <li>Run phpunit from within the Tests directory</li></ol><br />I chose option 2.

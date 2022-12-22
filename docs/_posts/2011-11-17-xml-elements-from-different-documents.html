@@ -1,0 +1,15 @@
+---
+layout: post
+title: XML Elements From Different Documents
+date: '2011-11-17T23:01:00.000-05:00'
+author: Tom
+tags:
+- ".NET"
+- unit testing
+- XML
+modified_time: '2011-11-17T23:01:56.125-05:00'
+blogger_id: tag:blogger.com,1999:blog-924733368885081052.post-7524533932246143265
+blogger_orig_url: http://www.tpwalke2.com/2011/11/xml-elements-from-different-documents.html
+---
+
+A coworker and I were working on a feature that required manipulating XML through the <a href="http://msdn.microsoft.com/en-us/library/hf9hbf87%28v=VS.90%29.aspx">.NET XML DOM</a>. Per our standard operating procedure, we were using <a href="http://en.wikipedia.org/wiki/Test-driven_development">test-driven development</a>. We were updating an existing piece of code to do something different so we were working within an existing design that made use of direct calls to the <code>XMLDocument</code> object.<br /><br />We went through a few iterations of red, green, refactor and finally arrived at an implementation that should have worked. Our test had an instance of XMLDocument that was creating nodes that we were sending into the code. But the code had its own XMLDocument that it was using to build the final XML structure. We kept getting an error with the message "The node to be inserted is from a different document context."<br /><br />After searching around, we eventually found that the XMLDocument is very selfish in which nodes it allows to be added. If you attempt to add a node within an instance of XMLDocument that was not the originating instance of that node, you will receive the same error.<br /><br />The solution in our case was to pull the XMLDocument instance creation out of the piece of code under test and pass it in as a modifiable parameter.

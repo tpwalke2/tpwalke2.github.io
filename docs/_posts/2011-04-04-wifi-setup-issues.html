@@ -1,0 +1,14 @@
+---
+layout: post
+title: WiFi Setup Issues
+date: '2011-04-04T18:30:00.001-04:00'
+author: Tom
+tags:
+- networking
+- wifi
+modified_time: '2011-04-04T18:30:01.171-04:00'
+blogger_id: tag:blogger.com,1999:blog-924733368885081052.post-3484169882059335873
+blogger_orig_url: http://www.tpwalke2.com/2011/04/wifi-setup-issues.html
+---
+
+For most of the month of March, <a href="https://web.archive.org/web/20110413063626/http://www.thecheapandchoosy.com/2011/03/wordless-wednesday-our-family-in-brazil.html">we were in Brazil</a> visiting <a href="http://thematiasfamily.blogspot.com/">friends</a> who are serving as missionaries. Our purpose was not to just visit, but to also help out. As I have some skills with computers, I helped with a few computer issues. I also worked on the wireless network. I brought some access points and routers with me and worked on expanding the coverage.<br /><br />It was fairly easy to get the new access points and router set up and plugged in, so I thought. Soon after I "finished", I started hearing about intermittent Internet access. Everybody was having trouble. So, I unplugged the new ones and went to the main router to see what was going on.<br /><br />There was already a router on the network and I added one. The new router had DHCP enabled and was going through the original one for Internet access, but was on a different subnet<br /><br />Some of the veterans out there may already have an idea about the issue.<br /><br />The new router was getting an IP address on a different subnet than it was assigning IP addresses on. All devices attached to the new router were getting conflicting IP addresses.<br /><br />I had to turn off DHCP on the new router. I also set the static IP addresses for the access points and new router to be on the subnet of the original router.<br /><br />I learned more about wireless networking than I really wanted to, but now I have some more questions in my troubleshooting script.

@@ -1,0 +1,17 @@
+---
+layout: post
+title: Guest OS Web Server Access
+date: '2017-11-11T08:00:00.000-05:00'
+author: Tom
+tags:
+- firewalls
+- parallels
+- Angular
+- node.js
+- mac
+modified_time: '2017-11-11T08:00:17.528-05:00'
+blogger_id: tag:blogger.com,1999:blog-924733368885081052.post-7078656369206992320
+blogger_orig_url: http://www.tpwalke2.com/2017/11/guest-os-web-server-access.html
+---
+
+In the latest project in my <a href="{{ site.baseurl }}{% post_url 2017-11-10-a-recap %}">new role</a>, I am developing with Angular 4/5 on Windows 10 hosted within Parallels on a Mac. Yes, I have a Mac now. What is the world coming to?<br />I needed to test some new functionality of the web app in a variety of operating systems and browsers. I figured it shouldn’t be too difficult to access the web server on the Guest OS, since the Apple mantra has always been “it just works”. Unfortunately, it didn’t just work.<br />There are numerous entries in the search results about trying to access the web server on the Host OS from the Guest OS, but I needed to do the opposite. I need to access the web server on the Guest OS from the Host OS. I eventually pieced together the following steps, in case you run into the same issue.<br /><h3>Bridged Mode Networking</h3>To make it easier to access the Guest OS web server from not just the Host OS, but other machines, I enabled “<a href="http://blog.parallels.com/2015/09/09/everything-you-need-to-know-about-network-modes-in-parallels-desktop/">Bridged Mode</a>” networking for the Windows 10 virtual machine. The Windows box now gets an IP address directly from my LAN instead of being NATed through the macOS Host.<br /><h3>Open Port in Firewall</h3>The application is being served on a non-standard port for HTTP, so I had to <a href="https://www.windowscentral.com/how-open-port-windows-firewall">open that port</a> in the Windows 10 firewall settings. The port to open will depend on the settings for your project.<br /><h3>Listen on All Interfaces</h3>By default, Angular only listens on the localhost interface (see host option for <a href="https://github.com/angular/angular-cli/wiki/serve">ng serve</a>). This may be due to the fact that in Windows, localhost is a separate network interface, but this means that, at least in Windows, Angular will not receive requests from other machines – including, but not limited to, the Host OS. I added “<code>--host 0.0.0.0</code>” to the ng serve command for the app to force Angular to listen on all network interfaces.<br /><h2>Conclusion</h2>I can now access my Windows 10 Guest virtual machine from the macOS Host to test in Safari. More than that, I can also access the Windows 10 VM from other devices on my LAN including my phone for testing in a mobile browser.<br />If this helps you or if you have additional troubleshooting tips, leave a comment below.

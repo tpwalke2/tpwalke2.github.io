@@ -1,0 +1,14 @@
+---
+layout: post
+title: Seagate FreeAgent Error 2013
+date: '2011-07-07T06:14:00.000-04:00'
+author: Tom
+tags:
+- backups
+- system maintenance
+modified_time: '2011-07-07T06:14:36.176-04:00'
+blogger_id: tag:blogger.com,1999:blog-924733368885081052.post-4239233810683172618
+blogger_orig_url: http://www.tpwalke2.com/2011/07/seagate-freeagent-error-2013.html
+---
+
+I have a <a href="http://www.seagate.com/">Seagate</a> <a href="http://www.seagate.com/www/en-us/products/external/freeagent/">FreeAgent</a> external drive to help with backups.<br /><br />About 2 weeks ago, the nightly backup started failing. It was always one particular file that couldn't get copied and the error code was 2013.<br /><br />A number of sites from the Google indicated that it was a file permission issue on both the backup drive and the source drive. I made sure that the file was not marked as read-only, but the backup still kept failing.<br /><br />I finally stumbled upon <a href="https://web.archive.org/web/20101120074814/http://seagate.custkb.com/seagate/crm/selfservice/search.jsp?DocId=201511&NewLang=en&Hilite=2013">this post</a> from the Seagate website itself.<br /><br />Per the article, I deleted the offending file from the backup drive and restarted the backup. It is now working again.
