@@ -25,11 +25,11 @@ description: >- # this means to ignore newlines until "baseurl:"
 domain: tpwalke2.github.io
 url: https://tpwalke2.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
-twitter_username: jekyllrb
-github_username:  jekyll
 
 # Build settings
 theme: minima
+minima:
+  skin: auto
 plugins:
   - jekyll-feed
 
