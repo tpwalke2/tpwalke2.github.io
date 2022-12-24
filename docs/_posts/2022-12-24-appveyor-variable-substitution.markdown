@@ -4,8 +4,8 @@ title: AppVeyor Variable Subsitution
 date: '2022-12-24T08:00:00.000-05:00'
 author: Tom
 tags:
-- appveyor
-- ci/cd
+ - appveyor
+ - continuous-integration
 ---
 A common need in CI/CD pipelines is to pass variables (e.g. the current build number) from one system to another. I
 recently encountered this need with an AppVeyor configuration that executes a Powershell script.
