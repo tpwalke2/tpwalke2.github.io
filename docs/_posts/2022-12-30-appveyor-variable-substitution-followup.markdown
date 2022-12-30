@@ -21,4 +21,4 @@ instead and the build number went into the Powershell script as expected.
 
 I concluded that the special variables (like `{build}`) do not mix with environment variable substitutions.
 
-[previous]: {% post_url 2011-02-25-intent %}
+[previous]: {% post_url 2022-12-24-appveyor-variable-substitution %}
