@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Generating a strongly-typed enum for font codepoints
-date: '2023-01-040T06:00:00.000-05:00'
+date: '2023-01-04T06:00:00.000-05:00'
 author: Tom
 tags:
 - source-generator
