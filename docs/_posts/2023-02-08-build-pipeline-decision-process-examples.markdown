@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Build Pipeline Decision Process : Examples
+title: 'Build Pipeline Decision Process : Examples'
 date: '2023-02-08T07:00:00.000-05:00'
 author: Tom
 tags:
