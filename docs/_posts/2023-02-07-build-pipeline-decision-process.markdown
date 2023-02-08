@@ -29,4 +29,6 @@ There are a number of decisions to make before building a CI/CD pipeline:
     vendor lock-in.
   - As with the custom pipeline software, custom build scripts require maintenance as the software matures.
 
-In the next installment, I will to walk through some of my decisions on a couple of recent projects.
+In the [next installment][next-post], I will to walk through some of my decisions on a couple of recent projects.
+
+[next-post]: {% post_url 2023-02-08-build-pipeline-decision-process-examples %}
