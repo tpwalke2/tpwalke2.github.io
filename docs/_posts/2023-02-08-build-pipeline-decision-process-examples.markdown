@@ -6,11 +6,10 @@ author: Tom
 tags:
 - appveyor
 - circleci
-- jenkins
 - continuous-integration
 - continuous-delivery
 ---
-On the [last post][last-post], I laid out the decisions that go into a build pipeline. With this post, I want to walk
+In the [last post][last-post], I laid out the decisions that go into a build pipeline. With this post, I want to walk
 through my decisions on a couple of personal projects.
 
 # CodePointEnumGenerator
