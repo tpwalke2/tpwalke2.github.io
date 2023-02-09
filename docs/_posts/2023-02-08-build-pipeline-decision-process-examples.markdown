@@ -43,7 +43,7 @@ configuration adapter.
 Because this project is in a private repository, [AppVeyor][appveyor] is not an option. I chose [CircleCi][circleci]
 because they offer a limited free ($) option for private repositories.
 
-In the next installment, I will go over a recent period where I was able to test the portability of the pipeline code.
+In the [next installment][next-post], I will go over a recent period where I was able to test the portability of the pipeline code.
 
 [last-post]: {% post_url 2023-02-07-build-pipeline-decision-process %}
 [code-point]: {% post_url 2023-01-04-font-codepoint-source-generator-package %}
@@ -51,3 +51,4 @@ In the next installment, I will go over a recent period where I was able to test
 [code-point-license]: https://github.com/tpwalke2/CodePointEnumGenerator/blob/main/LICENSE
 [appveyor]: https://www.appveyor.com/
 [circleci]: https://circleci.com/
+[next-post]: {% post_url 2023-02-09-changing-build-pipeline-providers %}
