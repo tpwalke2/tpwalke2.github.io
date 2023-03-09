@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Location Resource IDs in Azure'
+title: 'Locating Resource IDs in Azure'
 date: '2023-03-09T07:00:00.000-05:00'
 author: Tom
 tags:
