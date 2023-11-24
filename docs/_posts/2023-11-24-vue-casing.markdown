@@ -45,7 +45,7 @@ kebab-case for the properties. For example, the following are all valid ways to 
 
 If you use Vue and a component is not rendering as expected, check the casing of the property names. 
 
-[previous]: {% post_url 2023-06-11-multiple-vue-startup %}
+[previous]: {% post_url 2023-06-11-multiple-promises-vue-startup %}
 [vue]: https://vuejs.org/
 [pascal-case]: https://en.wikipedia.org/wiki/PascalCase
 [sfc]: https://vuejs.org/guide/scaling-up/sfc.html
