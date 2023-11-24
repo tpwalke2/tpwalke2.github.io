@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Component Casing in Vue'
-date: '2023-11-24T06:00:00.000-05:00'
+date: '2023-11-24T05:00:00.000-05:00'
 author: Tom
 tags:
 - Vue
