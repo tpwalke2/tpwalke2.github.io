@@ -25,6 +25,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 domain: tpwalke2.github.io
 url: https://tpwalke2.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
+webmaster_verifications:
+  impact-site-verification: d879995b-d06d-4ced-9fae-15c0ee856671
 
 # Build settings
 theme: minima
