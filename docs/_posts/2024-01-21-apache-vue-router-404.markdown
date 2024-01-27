@@ -9,7 +9,7 @@ tags:
 - Apache
 ---
 In my most recent [personal project][emotivewords], I used the [Vue][vue] framework and [Vue Router][vue-router] to
-handle the routing. I host the site on [Apache][apache] and it uses the [mod_rewrite][mod-rewrite] module to rewrite
+handle the routing. I [host][host] the site on [Apache][apache] and it uses the [mod_rewrite][mod-rewrite] module to rewrite
 URLs. The only rewrite rules I initially had were to redirect all requests to HTTPS and to prevent hot-linking of any
 images.
 
@@ -42,3 +42,4 @@ directly in the address bar.
 [vue-router]: https://router.vuejs.org/
 [apache]: https://httpd.apache.org/
 [mod-rewrite]: https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html
+[host]: https://partners.inmotionhosting.com/vNqrjd
