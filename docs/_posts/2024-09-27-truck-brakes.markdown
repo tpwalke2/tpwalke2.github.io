@@ -1,14 +1,14 @@
 ---
 layout: post
 title: 'Changing Truck Brakes'
-date: '2024-09-27T05:00:00.000-05:00'
+date: '2024-09-27T05:00:00.000-04:00'
 author: Tom
 tags:
   - truck
   - brakes
 ---
 
-TLDR;
+TL;DR
 Changing brake lines on my truck was a bigger project than I originally thought.
 Tips:
 - Hire someone else to do them.
